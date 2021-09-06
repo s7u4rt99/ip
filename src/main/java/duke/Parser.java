@@ -361,6 +361,8 @@ public class Parser {
                 || Integer.valueOf(separated[1]) > taskList.getSize()) {
             throw new DukeException("Please key in valid number to remove.");
         } else {
+            assert Integer.valueOf(separated[1]) > 0 && Integer.valueOf(separated[1]) <= taskList.getSize();
+
             return new RemoveCommand(Integer.valueOf(separated[1]) - 1);
         }
     }
@@ -382,6 +384,8 @@ public class Parser {
                 || Integer.valueOf(separated[1]) > taskList.getSize()) {
             throw new DukeException("Please key in valid number to mark as done.");
         } else {
+            assert Integer.valueOf(separated[1]) > 0 && Integer.valueOf(separated[1]) <= taskList.getSize();
+
             int index = Integer.valueOf(separated[1]) - 1;
             return new DoneCommand(index);
         }
